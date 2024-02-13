@@ -1,4 +1,4 @@
-import HomePage from "./01-main-demo";
+import HomePage from "./home-page";
 import BackToTop from "./backToTop";
 
 export default function Home() {
