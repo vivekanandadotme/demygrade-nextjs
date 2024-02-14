@@ -2,11 +2,49 @@ import Image from "next/image";
 
 import img from "../../public/images/about/contact.jpg";
 
-const ContactForm = ({gap}) => {
+import { useState } from 'react';
+
+const ContactForm = ({ gap }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    instituteName: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/submitForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Form submitted successfully');
+      } else {
+        alert('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
   return (
-    <>
-      <div className={`rbt-contact-address ${gap}`}>
-        <div className="container">
+    <div className={`rbt-contact-address ${gap}`}>
+      {/* Your HTML content for the contact form */}
+	  <div className="container">
           <div className="row g-5">
             <div className="col-lg-6">
               <div className="thumbnail">
@@ -26,62 +64,74 @@ const ContactForm = ({gap}) => {
                   </span>
                 </div>
                 <h3 className="title">
-                  Get a Free Course You Can Contact With Me
+                  Request a Callback
                 </h3>
-                <form
-                  id="contact-form"
-                  method="POST"
-                  action="mail.php"
-                  className="rainbow-dynamic-form max-width-auto"
-                >
-                  <div className="form-group">
-                    <input name="contact-name" id="contact-name" type="text" />
-                    <label>Name</label>
-                    <span className="focus-border"></span>
-                  </div>
-                  <div className="form-group">
-                    <input name="contact-phone" type="email" />
-                    <label>Email</label>
-                    <span className="focus-border"></span>
-                  </div>
-                  <div className="form-group">
-                    <input type="text" id="subject" name="subject" />
-                    <label>Your Subject</label>
-                    <span className="focus-border"></span>
-                  </div>
-                  <div className="form-group">
-                    <textarea
-                      name="contact-message"
-                      id="contact-message"
-                    ></textarea>
-                    <label>Message</label>
-                    <span className="focus-border"></span>
-                  </div>
-                  <div className="form-submit-group">
-                    <button
-                      name="submit"
-                      type="submit"
-                      id="submit"
-                      className="rbt-btn btn-md btn-gradient hover-icon-reverse w-100"
-                    >
-                      <span className="icon-reverse-wrapper">
-                        <span className="btn-text">GET IT NOW</span>
-                        <span className="btn-icon">
-                          <i className="feather-arrow-right"></i>
-                        </span>
-                        <span className="btn-icon">
-                          <i className="feather-arrow-right"></i>
-                        </span>
-                      </span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+      <form className="rainbow-dynamic-form max-width-auto" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input 
+            name="name" 
+            id="contact-name" 
+            type="text" 
+            value={formData.name} 
+            onChange={handleChange}
+          />
+          <label>Name</label>
+          <span className="focus-border"></span>
         </div>
-      </div>
-    </>
+        <div className="form-group">
+          <input 
+            name="email" 
+            type="email" 
+            value={formData.email} 
+            onChange={handleChange}
+          />
+          <label>Email</label>
+          <span className="focus-border"></span>
+        </div>
+        <div className="form-group">
+          <input 
+            name="phoneNumber" 
+            type="text" 
+            value={formData.phoneNumber} 
+            onChange={handleChange}
+          />
+          <label>Phone Number</label>
+          <span className="focus-border"></span>
+        </div>
+        <div className="form-group">
+          <input 
+            name="instituteName" 
+            type="text" 
+            value={formData.instituteName} 
+            onChange={handleChange}
+          />
+          <label>Institute Name</label>
+          <span className="focus-border"></span>
+        </div>
+        <div className="form-submit-group">
+          <button
+            name="submit"
+            type="submit"
+            id="submit"
+            className="rbt-btn btn-md btn-gradient hover-icon-reverse w-100"
+          >
+            <span className="icon-reverse-wrapper">
+              <span className="btn-text">Request Callback</span>
+              <span className="btn-icon">
+                <i className="feather-arrow-right"></i>
+              </span>
+              <span className="btn-icon">
+                <i className="feather-arrow-right"></i>
+              </span>
+            </span>
+          </button>
+        </div>
+      </form>
+	  </div>
+	  </div>
+	  </div>
+	  </div>
+    </div>
   );
 };
 
