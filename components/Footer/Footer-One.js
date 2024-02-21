@@ -5,7 +5,7 @@ import logo from "../../public/images/logo/logo.png";
 
 import CopyRight from "./CopyRight";
 
-import FooterData from "../../data/footer.json";
+import FooterData from "../../data/programfooter.json";
 import SingleFooter from "./FooterProps/SingleFooter";
 
 const FooterOne = ({ bgColor }) => {
@@ -52,7 +52,7 @@ const FooterOne = ({ bgColor }) => {
                           href="#"
                         >
                           <div className="icon-reverse-wrapper">
-                            <span className="btn-text">Contact With Us</span>
+                            <span className="btn-text">Request Call Back</span>
                             <span className="btn-icon">
                               <i className="feather-arrow-right"></i>
                             </span>
