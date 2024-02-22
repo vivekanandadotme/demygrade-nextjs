@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import AboutData from "../../data/elements/about.json";
 
-const AboutSaven = () => {
+const AboutSeven = () => {
   return (
     <>
       {AboutData &&
@@ -46,4 +46,4 @@ const AboutSaven = () => {
   );
 };
 
-export default AboutSaven;
+export default AboutSeven;

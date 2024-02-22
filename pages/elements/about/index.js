@@ -7,7 +7,7 @@ import About from "@/components/Abouts/About";
 import AboutEight from "@/components/Abouts/About-Eight";
 import AboutFive from "@/components/Abouts/About-Five";
 import AboutFour from "@/components/Abouts/About-Four";
-import AboutSaven from "@/components/Abouts/About-Saven";
+import AboutSeven from "@/components/Abouts/About-Seven";
 import AboutSix from "@/components/Abouts/About-Six";
 import AboutThree from "@/components/Abouts/About-Three";
 import AboutTwo from "@/components/Abouts/About-Two";
@@ -70,7 +70,7 @@ const AboutPage = () => {
 
           <div className="rbt-about-area about-style-1 bg-color-extra2 rbt-section-gap">
             <div className="container">
-              <AboutSaven />
+              <AboutSeven />
             </div>
           </div>
 
