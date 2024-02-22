@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import CardData from "../../data/elements/card";
+import CardData from "../../data/elements/card.json";
 
 const CardFour = () => {
   return (
@@ -29,16 +29,16 @@ const CardFour = () => {
                 </div>
                 <div className="rbt-card-body">
                   <div className="rbt-category">
-                    <Link href="#">{data.categoryOne}</Link>
+                    {/* <Link href="#">{data.categoryOne}</Link> */}
                     <Link href="#">{data.categoryTwo}</Link>
                   </div>
                   <h4 className="rbt-card-title">
                     <Link href={data.link}>{data.title}</Link>
                   </h4>
-                  <span className="lesson-number">
+                  {/* <span className="lesson-number">
                     {data.lesson} lessons{" "}
                     <span className="lesson-time">(4 hours total)</span>
-                  </span>
+                  </span> */}
                   <p className="rbt-card-text">{data.desc}</p>
                   <div className="rbt-card-bottom">
                     <Link className="transparent-button" href={data.link}>

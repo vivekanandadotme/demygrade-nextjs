@@ -9,7 +9,7 @@ import ServiceThree from "@/components/Services/Service-Three";
 import ServiceFour from "@/components/Services/Service-Four";
 import ServiceFive from "@/components/Services/Service-Five";
 import ServiceSix from "@/components/Services/Service-Six";
-import ServiceSaven from "@/components/Services/Service-Saven";
+import ServiceSaven from "@/components/Services/Service-Seven";
 import ServiceEight from "@/components/Services/Service-Eight";
 import ServiceNine from "@/components/Services/Service-Nine";
 import ServiceTen from "@/components/Services/Service-Ten";

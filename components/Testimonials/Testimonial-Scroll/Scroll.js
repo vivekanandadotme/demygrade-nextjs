@@ -30,10 +30,6 @@ const Scroll = ({ testimonial, testimonialData }) => {
                       </div>
                       <div className="description">
                         <p className="subtitle-3">{item.desc}</p>
-                        <Link className="rbt-btn-link" href="#">
-                          Read Project Case Study
-                          <i className="feather-arrow-right"></i>
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -68,10 +64,6 @@ const Scroll = ({ testimonial, testimonialData }) => {
                       </div>
                       <div className="description">
                         <p className="subtitle-3">{item.desc}</p>
-                        <Link className="rbt-btn-link" href="#">
-                          Read Project Case Study
-                          <i className="feather-arrow-right"></i>
-                        </Link>
                       </div>
                     </div>
                   </div>
