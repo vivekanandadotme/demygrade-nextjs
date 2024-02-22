@@ -44,7 +44,7 @@ const ContactPage = () => {
           <div className="rbt-google-map bg-color-white rbt-section-gapTop">
             <iframe
               className="w-100"
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.51930811937802!2d83.29520220487129!3d17.730077126550267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a394327baeab4e3%3A0x3b8662cf6cce032b!2s43-3-29%2FC%2C%20Sri%20Siddi%20Enclave%2C%20Railway%20New%20Colony%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530016!5e0!3m2!1sen!2sin!4v1708411996033!5m2!1sen!2sin"
               height="600"
               style={{ border: "0" }}
             ></iframe>
