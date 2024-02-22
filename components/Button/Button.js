@@ -9,7 +9,7 @@ import videoImg2 from "../../public/images/others/video-02.jpg";
 import videoImg3 from "../../public/images/others/video-03.jpg";
 import videoImg4 from "../../public/images/others/video-04.jpg";
 
-import ColorButton from "./ButtonProps/ColorButton";
+import ColorButton from "../Button/ButtonProps/ProgramColorButton";
 import HoverButton from "./ButtonProps/HoverButton";
 import SectionHead from "./ButtonProps/SectionHead";
 
@@ -49,7 +49,7 @@ const Button = () => {
             text="Button Border"
           />
         }
-        btnText="Histudy Button"
+        btnText="Histudy Button "
         classOne="rbt-button-area rbt-section-gapBottom bg-color-white"
         btnClassOne="btn-border square"
         btnClassTwo="btn-border"
