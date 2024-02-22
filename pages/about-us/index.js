@@ -2,9 +2,9 @@ import Banner from "@/components/About-Us-01/Banner";
 import ServiceSix from "@/components/Services/Service-Six";
 import About from "@/components/Abouts/About";
 
-import AboutSaven from "@/components/Abouts/About-Seven";
+import AboutSeven from "@/components/Abouts/About-Seven";
 import AboutSix from "@/components/Abouts/About-Six";
-import AboutSaven2 from "@/components/Abouts/About-SevenTwo";
+import AboutSeven2 from "@/components/Abouts/About-SevenTwo";
 import MobileMenu from "@/components/Header/MobileMenu";
 import HeaderStyleTen from "@/components/Header/HeaderStyle-Ten";
 import MainDemo from "@/components/01-Main-Demo/01-Main-Demo";
@@ -37,7 +37,7 @@ const Home = () => {
 
           <div className="rbt-about-area about-style-1 bg-color-extra2 rbt-section-gap">
             <div className="container">
-              <AboutSaven />
+              <AboutSeven />
             </div>
 
             <div className="rbt-about-area about-style-1 bg-color-white rbt-section-gap">
@@ -48,7 +48,7 @@ const Home = () => {
                 />
               </div>
               <div className="container">
-                <AboutSaven2 />
+                <AboutSeven2 />
               </div>
             </div>
 

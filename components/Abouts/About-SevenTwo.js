@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import AboutData from "../../data/elements/about.json";
 
-const AboutSaven2 = () => {
+const AboutSeven2 = () => {
   return (
     <>
       {AboutData &&
@@ -38,4 +38,4 @@ const AboutSaven2 = () => {
   );
 };
 
-export default AboutSaven2;
+export default AboutSeven2;
