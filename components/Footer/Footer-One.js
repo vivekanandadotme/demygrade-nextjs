@@ -5,7 +5,7 @@ import logo from "../../public/images/logo/logo.png";
 
 import CopyRight from "./CopyRight";
 
-import FooterData from "../../data/ProgramFooter.json";
+import FooterData from "../../data/Programfooter.json";
 import SingleFooter from "./FooterProps/SingleFooter";
 
 const FooterOne = ({ bgColor }) => {
