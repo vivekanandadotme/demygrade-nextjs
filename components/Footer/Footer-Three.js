@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import logo from "../../public/images/logo/logo.png";
 
-import FooterData from "../../data/programfooter.json";
+import FooterData from "../../data/ProgramFooter.json";
 import SingleFooter from "./FooterProps/SingleFooter";
 import CopyRight from "./CopyRight";
 
