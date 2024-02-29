@@ -27,7 +27,7 @@ const Content = ({ checkMatchCourses }) => {
                     aria-controls={`collapseTwo${innerIndex + 1}`}
                   >
                     {item.title}
-                    <span className="rbt-badge-5 ml--10">{item.time}</span>
+                    {/* <span className="rbt-badge-5 ml--10">{item.time}</span> */}
                   </button>
                 </h2>
                 <div
@@ -42,30 +42,30 @@ const Content = ({ checkMatchCourses }) => {
                     <ul className="rbt-course-main-content liststyle">
                       {item.listItem.map((list, subIndex) => (
                         <li key={subIndex}>
-                          <Link href="/lesson">
+                          {/* <Link href="/lesson"> */}
                             <div className="course-content-left">
-                              {list.playIcon ? (
+                              {/* {list.playIcon ? (
                                 <i className="feather-play-circle"></i>
                               ) : (
                                 <i className="feather-file-text"></i>
-                              )}
+                              )} */}
                               <span className="text">{list.text}</span>
                             </div>
                             {list.status ? (
                               <div className="course-content-right">
-                                <span className="min-lable">{list.time}</span>
-                                <span className="rbt-badge variation-03 bg-primary-opacity">
+                                {/* <span className="min-lable">{list.time}</span> */}
+                                {/* <span className="rbt-badge variation-03 bg-primary-opacity">
                                   <i className="feather-eye"></i> Preview
-                                </span>
+                                </span> */}
                               </div>
                             ) : (
                               <div className="course-content-right">
-                                <span className="course-lock">
+                                {/* <span className="course-lock">
                                   <i className="feather-lock"></i>
-                                </span>
+                                </span> */}
                               </div>
                             )}
-                          </Link>
+                          {/* </Link> */}
                         </li>
                       ))}
                     </ul>

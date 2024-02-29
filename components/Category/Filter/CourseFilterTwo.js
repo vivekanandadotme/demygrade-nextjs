@@ -143,7 +143,7 @@ const CourseFilterTwo = () => {
               </div>
             </div>
 
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-4 col-sm-6 col-12">
               <div className="rbt-single-widget rbt-widget-rating">
                 <div className="inner">
                   <h4 className="rbt-widget-title-2">Ratings</h4>
@@ -217,9 +217,9 @@ const CourseFilterTwo = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-4 col-sm-6 col-12">
               <div className="rbt-single-widget rbt-widget-instructor">
                 <div className="inner">
                   <h4 className="rbt-widget-title-2">Instructors</h4>
@@ -268,9 +268,9 @@ const CourseFilterTwo = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-4 col-sm-6 col-12">
               <div className="rbt-single-widget rbt-widget-prices">
                 <div className="inner">
                   <h4 className="rbt-widget-title-2">Prices</h4>
@@ -308,7 +308,7 @@ const CourseFilterTwo = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-lg-2 col-md-4 col-sm-6 col-12">
               <div className="rbt-single-widget rbt-widget-lavels">
@@ -360,7 +360,7 @@ const CourseFilterTwo = () => {
               </div>
             </div>
 
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+            {/* <div className="col-lg-2 col-md-4 col-sm-6 col-12">
               <div className="rbt-single-widget rbt-widget-features">
                 <div className="inner">
                   <h4 className="rbt-widget-title-2">Features</h4>
@@ -409,7 +409,7 @@ const CourseFilterTwo = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
