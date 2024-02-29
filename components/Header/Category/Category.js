@@ -8,7 +8,7 @@ const Category = () => {
       <div className="">
         <div className="rbt-offcanvas-trigger md-size icon">
           <span className="d-none d-xl-block">
-            <i className="feather-grid"></i>
+            {/* <i className="feather-grid"></i> */}
           </span>
           {/* <i title="Category" className="feather-grid d-block d-xl-none"></i> */}
         </div>

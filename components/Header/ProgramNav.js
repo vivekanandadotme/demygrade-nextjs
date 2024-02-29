@@ -28,7 +28,7 @@ const Nav = () => {
             href="#"
           >
             Home
-            <i className="feather-chevron-down"></i>
+            {/* <i className="feather-chevron-down"></i> */}
           </Link>
           <div
             className={`rbt-megamenu menu-skin-dark ${

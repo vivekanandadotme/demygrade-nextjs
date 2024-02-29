@@ -5,7 +5,7 @@ import Image from "next/image";
 import HeaderRightTwo from "../Header-Right/HeaderRight-Two";
 import Search from "../Offcanvas/Search";
 import Category from "../Category/Category";
-import Nav from "../Nav";
+import Nav from "../ProgramNav";
 
 import logo from "../../../public/images/logo/logo.png";
 
