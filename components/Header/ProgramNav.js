@@ -220,7 +220,7 @@ const Nav = () => {
         </li>
         <li className="with-megamenu has-menu-child-item position-static">
           <Link
-            href="#"
+            href="http://localhost:3000/pages/about-us"
             className={`${activeMenuItem === "pages" ? "open" : ""}`}
             onClick={() => toggleMenuItem("pages")}
           >
@@ -295,7 +295,7 @@ const Nav = () => {
         </li>
         <li className="with-megamenu has-menu-child-item position-static">
           <Link
-            href="#"
+            href="http://localhost:3000/contact-us"
             className={`${activeMenuItem === "elements" ? "open" : ""}`}
             onClick={() => toggleMenuItem("elements")}
           >

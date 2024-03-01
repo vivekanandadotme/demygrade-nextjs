@@ -68,7 +68,7 @@ const HeaderRightTwo = ({ btnClass, btnText, userType }) => {
             text="Button Border"
           />
         }
-        btnText="Histudy Button"
+        btnText="Request Callback"
         // classOne="rbt-button-area rbt-section-gapBottom bg-color-white"
         // btnClassOne="btn-border square"
         // btnClassTwo="btn-border"
