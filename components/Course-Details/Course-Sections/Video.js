@@ -8,7 +8,6 @@ import "venobox/dist/venobox.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useAppContext } from "@/context/Context";
 import { addToCartAction } from "@/redux/action/CartAction";
-import { directions } from "fontawesome";
 
 const Video = ({ checkMatchCourses }) => {
   const router = useRouter();
