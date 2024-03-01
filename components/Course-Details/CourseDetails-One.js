@@ -7,7 +7,7 @@ import Overview from "./Course-Sections/Overview";
 import RelatedCourse from "./Course-Sections/RelatedCourse";
 import Requirements from "./Course-Sections/Requirements";
 import Review from "./Course-Sections/Review";
-import Viedo from "./Course-Sections/Viedo";
+import Video from "./Course-Sections/Video";
 
 const CourseDetailsOne = ({ checkMatchCourses }) => {
   return (
@@ -57,35 +57,35 @@ const CourseDetailsOne = ({ checkMatchCourses }) => {
             className="rbt-instructor rbt-shadow-box intructor-wrapper mt--30"
             id="intructor"
           >
-            {checkMatchCourses &&
+            {/* {checkMatchCourses &&
               checkMatchCourses.courseInstructor.map((data, index) => (
                 <Instructor {...data} key={index} checkMatchCourses={data} />
-              ))}
+              ))} */}
           </div>
           <div
             className="rbt-review-wrapper rbt-shadow-box review-wrapper mt--30"
             id="review"
           >
-            <Review />
+            {/* <Review /> */}
           </div>
 
-          {checkMatchCourses &&
+          {/* {checkMatchCourses &&
             checkMatchCourses.featuredReview.map((data, index) => (
               <Featured {...data} key={index} coursesFeatured={data} />
-            ))}
+            ))} */}
         </div>
-        <div className="related-course mt--60">
+        {/* <div className="related-course mt--60">
           {checkMatchCourses &&
             checkMatchCourses.relatedCourse.map((data, index) => (
               <RelatedCourse {...data} key={index} checkMatchCourses={data} />
             ))}
-        </div>
+        </div> */}
       </div>
 
       <div className="col-lg-4">
         <div className="course-sidebar sticky-top rbt-shadow-box course-sidebar-top rbt-gradient-border">
           <div className="inner">
-            <Viedo checkMatchCourses={checkMatchCourses && checkMatchCourses} />
+            <Video checkMatchCourses={checkMatchCourses && checkMatchCourses} />
           </div>
         </div>
       </div>

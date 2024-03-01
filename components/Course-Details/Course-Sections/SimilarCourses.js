@@ -28,45 +28,45 @@ const SimilarCourses = ({ checkMatchCourses }) => {
                         height={244}
                         alt="Card image"
                       />
-                      {item.discount > 0 ? (
+                      {/* {item.discount > 0 ? (
                         <div className="rbt-badge-3 bg-white">
                           <span>-{item.discount}%</span>
                           <span>Off</span>
                         </div>
                       ) : (
                         ""
-                      )}
+                      )} */}
                     </Link>
                   </div>
                   <div className="rbt-card-body">
                     <div className="rbt-card-top">
                       <div className="rbt-review">
-                        <div className="rating">
+                        {/* <div className="rating">
                           <i className="fas fa-star"></i>
                           <i className="fas fa-star"></i>
                           <i className="fas fa-star"></i>
                           <i className="fas fa-star"></i>
                           <i className="fas fa-star"></i>
-                        </div>
-                        <span className="rating-count">
+                        </div> */}
+                        {/* <span className="rating-count">
                           {" "}
                           ({item.rating} Reviews)
-                        </span>
+                        </span> */}
                       </div>
                       <div className="rbt-bookmark-btn">
-                        <Link
+                        {/* <Link
                           className="rbt-round-btn"
                           title="Bookmark"
                           href="#"
                         >
                           <i className="feather-bookmark"></i>
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                     <h4 className="rbt-card-title">
                       <Link href={item.link}>{item.title}</Link>
                     </h4>
-                    <ul className="rbt-meta">
+                    {/* <ul className="rbt-meta">
                       <li>
                         <i className="feather-book"></i>
                         {item.lesson} Lessons
@@ -75,12 +75,12 @@ const SimilarCourses = ({ checkMatchCourses }) => {
                         <i className="feather-users"></i>
                         {item.student} Students
                       </li>
-                    </ul>
+                    </ul> */}
 
                     <p className="rbt-card-text">{item.desc}</p>
 
                     <div className="rbt-author-meta mb--20">
-                      <div className="rbt-avater">
+                      {/* <div className="rbt-avater">
                         <Link href={`/profile/${item.id}`}>
                           <Image
                             src={item.avatar}
@@ -95,7 +95,7 @@ const SimilarCourses = ({ checkMatchCourses }) => {
                         <Link href={`/profile/${item.id}`}>{item.author}</Link>{" "}
                         In
                         <Link href="#">{item.post}</Link>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="rbt-card-bottom">
                       <div className="rbt-price">

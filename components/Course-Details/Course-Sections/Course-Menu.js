@@ -53,12 +53,6 @@ const CourseMenu = () => {
           <li className={currentSection === "#details" ? "current" : ""}>
             <Link href="#details">Details</Link>
           </li>
-          <li className={currentSection === "#intructor" ? "current" : ""}>
-            <Link href="#intructor">Instructor</Link>
-          </li>
-          <li className={currentSection === "#review" ? "current" : ""}>
-            <Link href="#review">Review</Link>
-          </li>
         </ul>
       </nav>
     </>

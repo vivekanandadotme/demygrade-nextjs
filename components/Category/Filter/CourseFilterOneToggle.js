@@ -44,23 +44,23 @@ const CourseFilterOneToggle = ({ course, start, end }) => {
               }`}
             >
               <div className="rbt-card-img">
-                <Link href={`/course-details/${data.id}`}>
+                <Link href={`/program-details/${data.slug}`}>
                   <Image
                     src={data.courseImg}
                     width={355}
                     height={244}
                     alt="Card image"
                   />
-                  <div className="rbt-badge-3 bg-white">
+                  {/* <div className="rbt-badge-3 bg-white">
                     <span>-{data.offPrice}%</span>
                     <span>Off</span>
-                  </div>
+                  </div> */}
                 </Link>
               </div>
               <div className="rbt-card-body">
                 <div className="rbt-card-top">
                   <div className="rbt-review">
-                    <div className="rating">
+                    {/* <div className="rating">
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
@@ -69,22 +69,22 @@ const CourseFilterOneToggle = ({ course, start, end }) => {
                     </div>
                     <span className="rating-count">
                       ({data.review} Reviews)
-                    </span>
+                    </span> */}
                   </div>
-                  <div className="rbt-bookmark-btn">
+                  {/* <div className="rbt-bookmark-btn">
                     <Link className="rbt-round-btn" title="Bookmark" href="#">
                       <i className="feather-bookmark"></i>
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
 
                 <h4 className="rbt-card-title">
-                  <Link href={`/course-details/${data.id}`}>
+                  <Link href={`/program-details/${data.slug}`}>
                     {data.courseTitle}
                   </Link>
                 </h4>
 
-                <ul className="rbt-meta">
+                {/* <ul className="rbt-meta">
                   <li>
                     <i className="feather-book"></i>
                     {data.lesson} Lessons
@@ -93,11 +93,11 @@ const CourseFilterOneToggle = ({ course, start, end }) => {
                     <i className="feather-users"></i>
                     {data.student} Students
                   </li>
-                </ul>
+                </ul> */}
 
                 <p className="rbt-card-text">{data.desc}</p>
                 <div className="rbt-author-meta mb--10">
-                  <div className="rbt-avater">
+                  {/* <div className="rbt-avater">
                     <Link href="#">
                       <Image
                         src={data.userImg}
@@ -110,7 +110,7 @@ const CourseFilterOneToggle = ({ course, start, end }) => {
                   <div className="rbt-author-info">
                     By <Link href={`/profile/${data.id}`}>{data.userName}</Link>{" "}
                     In <Link href="#">{data.userCategory}</Link>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="rbt-card-bottom">
                   <div className="rbt-price">
@@ -119,7 +119,7 @@ const CourseFilterOneToggle = ({ course, start, end }) => {
                   </div>
                   <Link
                     className="rbt-btn-link"
-                    href={`/course-details/${data.id}`}
+                    href={`/program-details/${data.slug}`}
                   >
                     Learn More<i className="feather-arrow-right"></i>
                   </Link>

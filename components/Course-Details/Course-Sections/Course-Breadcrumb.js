@@ -23,7 +23,7 @@ const CourseBreadcrumb = ({ getMatchCourse }) => {
           <p className="description">{getMatchCourse.desc}</p>
 
           <div className="d-flex align-items-center mb--20 flex-wrap rbt-course-details-feature">
-            <div className="feature-sin best-seller-badge">
+            {/* <div className="feature-sin best-seller-badge">
               <span className="rbt-badge-2">
                 <span className="image">
                   {getMatchCourse.awardImg && (
@@ -37,9 +37,9 @@ const CourseBreadcrumb = ({ getMatchCourse }) => {
                 </span>
                 {getMatchCourse.sellsType}
               </span>
-            </div>
+            </div> */}
 
-            <div className="feature-sin rating">
+            {/* <div className="feature-sin rating">
               <Link href="#">{getMatchCourse.star}</Link>
               <Link href="#">
                 <i className="fa fa-star"></i>
@@ -56,20 +56,20 @@ const CourseBreadcrumb = ({ getMatchCourse }) => {
               <Link href="#">
                 <i className="fa fa-star"></i>
               </Link>
-            </div>
+            </div> */}
 
-            <div className="feature-sin total-rating">
+            {/* <div className="feature-sin total-rating">
               <Link className="rbt-badge-4" href="#">
                 {getMatchCourse.ratingNumber} rating
               </Link>
-            </div>
+            </div> */}
 
-            <div className="feature-sin total-student">
+            {/* <div className="feature-sin total-student">
               <span> {getMatchCourse.studentNumber} students</span>
-            </div>
+            </div> */}
           </div>
 
-          <div className="rbt-author-meta mb--20">
+          {/* <div className="rbt-author-meta mb--20">
             <div className="rbt-avater">
               <Link href={`/profile/${getMatchCourse.id}`}>
                 {getMatchCourse.userImg && (
@@ -89,7 +89,7 @@ const CourseBreadcrumb = ({ getMatchCourse }) => {
               </Link>{" "}
               In <Link href="#">{getMatchCourse.userCategory}</Link>
             </div>
-          </div>
+          </div> */}
 
           <ul className="rbt-meta">
             <li>

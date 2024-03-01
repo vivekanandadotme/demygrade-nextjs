@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import CategoryBanner from "./Category-Banner";
 
 import CourseFilterTwo from "./Filter/CourseFilterTwo";
+
 import { useAppContext } from "@/context/Context";
 
 const CategoryHeadTwo = ({ category }) => {
@@ -86,7 +87,7 @@ const CategoryHeadTwo = ({ category }) => {
                         </button>
                       </form>
                     </div>
-                    {path === "/course-filter-two-open" ||
+                    {path === "/all-programs" ||
                     router.query.courseId ? (
                       ""
                     ) : (
@@ -105,7 +106,7 @@ const CategoryHeadTwo = ({ category }) => {
                 </div>
               </div>
 
-              {path === "/course-filter-two-open" || router.query.courseId ? (
+              {path === "/all-programs" ? (
                 <CourseFilterTwo />
               ) : (
                 <div

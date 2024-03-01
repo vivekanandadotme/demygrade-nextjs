@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAppContext } from "@/context/Context";
 import { addToCartAction } from "@/redux/action/CartAction";
 
-const Viedo = ({ checkMatchCourses }) => {
+const Video = ({ checkMatchCourses }) => {
+  const router = useRouter();
+  const path = router.asPath;
   const { cartToggle, setCart } = useAppContext();
   const [toggle, setToggle] = useState(false);
   const [hideOnScroll, setHideOnScroll] = useState(false);
@@ -29,34 +32,39 @@ const Viedo = ({ checkMatchCourses }) => {
     localStorage.setItem("hiStudy", JSON.stringify(cart));
   }, [cart]);
 
+
+  // const copyLinkToClipboard = () => {
+  //   navigator.clipboard.writeText(window.location.href);
+  //   alert('Link copied to clipboard!');
+  // };
+
   // =====> For video PopUp
-  useEffect(() => {
-    import("venobox/dist/venobox.min.js").then((venobox) => {
-      new venobox.default({
-        selector: ".popup-video",
-      });
-    });
+  // useEffect(() => {
+  //   import("venobox/dist/venobox.min.js").then((venobox) => {
+  //     new venobox.default({
+  //       selector: ".popup-video",
+  //     });
+  //   });
 
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      const isHide = currentScrollPos > 200;
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.pageYOffset;
+  //     const isHide = currentScrollPos > 200;
 
-      setHideOnScroll(isHide);
-    };
+  //     setHideOnScroll(isHide);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <>
       <Link
-        className={`video-popup-with-text video-popup-wrapper text-center popup-video sidebar-video-hidden mb--15 ${
-          hideOnScroll ? "d-none" : ""
-        }`}
+        className={`video-popup-with-text video-popup-wrapper text-center popup-video sidebar-video-hidden mb--15 ${hideOnScroll ? "d-none" : ""
+          }`}
         data-vbtype="video"
         href="https://www.youtube.com/watch?v=nA1Aqp0sPQo"
       >
@@ -70,14 +78,14 @@ const Viedo = ({ checkMatchCourses }) => {
               alt="Video Images"
             />
           )}
-          <div className="position-to-top">
+          {/* <div className="position-to-top">
             <span className="rbt-btn rounded-player-2 with-animation">
               <span className="play-icon"></span>
             </span>
-          </div>
-          <span className="play-view-text d-block color-white">
+          </div> */}
+          {/* <span className="play-view-text d-block color-white">
             <i className="feather-eye"></i> Preview this course
-          </span>
+          </span> */}
         </div>
       </Link>
       <div className="content-item-content">
@@ -86,16 +94,16 @@ const Viedo = ({ checkMatchCourses }) => {
             <span className="current-price">${checkMatchCourses.price}</span>
             <span className="off-price">${checkMatchCourses.offPrice}</span>
           </div>
-          <div className="discount-time">
+          {/* <div className="discount-time">
             <span className="rbt-badge color-danger bg-color-danger-opacity">
               <i className="feather-clock"></i> {checkMatchCourses.days} days
               left!
             </span>
-          </div>
+          </div> */}
         </div>
 
         <div className="add-to-card-button mt--15">
-          <Link
+          {/* <Link
             className="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
             href="#"
             onClick={() =>
@@ -106,7 +114,7 @@ const Viedo = ({ checkMatchCourses }) => {
             <span className="btn-icon">
               <i className="feather-arrow-right"></i>
             </span>
-          </Link>
+          </Link> */}
         </div>
 
         <div className="buy-now-btn mt--15">
@@ -120,13 +128,12 @@ const Viedo = ({ checkMatchCourses }) => {
             </span>
           </Link>
         </div>
-        <span className="subtitle">
+        {/* <span className="subtitle">
           <i className="feather-rotate-ccw"></i> 30-Day Money-Back Guarantee
-        </span>
+        </span> */}
         <div
-          className={`rbt-widget-details has-show-more ${
-            toggle ? "active" : ""
-          }`}
+          className={`rbt-widget-details has-show-more ${toggle ? "active" : ""
+            }`}
         >
           <ul className="has-show-more-inner-content rbt-course-details-list-wrapper">
             {checkMatchCourses &&
@@ -139,38 +146,46 @@ const Viedo = ({ checkMatchCourses }) => {
                 </li>
               ))}
           </ul>
-          <div
+          {/* <div
             className={`rbt-show-more-btn ${toggle ? "active" : ""}`}
             onClick={() => setToggle(!toggle)}
           >
             Show More
-          </div>
+          </div> */}
         </div>
 
         <div className="social-share-wrapper mt--30 text-center">
           <div className="rbt-post-share d-flex align-items-center justify-content-center">
-            <ul className="social-icon social-default transparent-with-border justify-content-center">
-              <li>
-                <Link href="https://www.facebook.com/">
-                  <i className="feather-facebook"></i>
+            <div>
+              <p className="video-share" style={{fontSize:"15px"}}>Share this course</p>
+              <ul className="social-icon social-default transparent-with-border justify-content-center"> 
+                <li>
+                  <Link href={"https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000" + path}>
+                    <i className="feather-facebook"></i>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"https://twitter.com/intent/tweet?url=http://localhost:3000" + path}>
+                    <i className="feather-twitter"></i>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"https://www.linkedin.com/sharing/share-offsite/?url=http://localhost:3000" + path}>
+                    <i className="feather-linkedin"></i>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"mailto:?subject=Check out this course&body=http://localhost:3000" + path}>
+                    <i className="feather-mail"></i>
+                  </Link>
+                </li>
+                {/* <li>
+                <Link onClick={copyLinkToClipboard}>
+                  <i className="feather-code"></i>
                 </Link>
-              </li>
-              <li>
-                <Link href="https://www.twitter.com">
-                  <i className="feather-twitter"></i>
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.instagram.com/">
-                  <i className="feather-instagram"></i>
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.linkdin.com/">
-                  <i className="feather-linkedin"></i>
-                </Link>
-              </li>
-            </ul>
+              </li> */}
+              </ul>
+            </div>
           </div>
           <hr className="mt--20" />
           <div className="contact-with-us text-center">
@@ -180,6 +195,14 @@ const Viedo = ({ checkMatchCourses }) => {
               <Link href="#">
                 <strong>+444 555 666 777</strong>
               </Link>
+
+            </p>
+          </div>
+          <div className="contact-with-us text-center">
+            <p className="mt--25 ">
+              <Link className={`rbt-btn btn-border radius-round`} href="#">
+                <strong>Request CallBack</strong>
+              </Link>
             </p>
           </div>
         </div>
@@ -188,4 +211,4 @@ const Viedo = ({ checkMatchCourses }) => {
   );
 };
 
-export default Viedo;
+export default Video;
