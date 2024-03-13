@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import ServiceData from "../../data/elements/service.json";
 
-const ServiceSaven = () => {
+const ServiceSeven = () => {
   return (
     <>
       {ServiceData &&
@@ -84,4 +84,4 @@ const ServiceSaven = () => {
   );
 };
 
-export default ServiceSaven;
+export default ServiceSeven;
