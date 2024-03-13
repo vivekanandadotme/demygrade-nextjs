@@ -23,7 +23,7 @@ const ContactForm = ({ gap }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/submitForm', {
+      const response = await fetch('http://localhost:3001/api/submitForm', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
