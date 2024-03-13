@@ -1,9 +1,13 @@
 const express = require('express');
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
+// Enable CORS for all origins
+app.use(cors());
 
 // Create database connection
 const connection = mysql.createConnection({
