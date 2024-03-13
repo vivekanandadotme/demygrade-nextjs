@@ -20,12 +20,12 @@ import SimilarCourses from "@/components/Course-Details/Course-Sections/SimilarC
 const SingleCourse = () => {
   const router = useRouter();
   // const postId = parseInt(router.query.courseId);
-  const slug = router.query.slug;
+  const slug = router.query.programSlug;
   let getCourse;
 
   getCourse = JSON.parse(JSON.stringify(CourseData.courseDetails));
 
-  const checkMatch = getCourse.find((course) => course.title === slug);
+  const checkMatch = getCourse.find((course) => course.slug === slug);
 
   useEffect(() => {
     if (slug && checkMatch === undefined) {
