@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-
+import CourseData from "../../../data/course-details/courseData.json";
 import "venobox/dist/venobox.min.css";
-
+import { nanoid } from 'nanoid'; // Make sure you've installed nanoid package
 import { useDispatch, useSelector } from "react-redux";
 import { useAppContext } from "@/context/Context";
 import { addToCartAction } from "@/redux/action/CartAction";
@@ -15,50 +15,94 @@ const Video = ({ checkMatchCourses }) => {
   const { cartToggle, setCart } = useAppContext();
   const [toggle, setToggle] = useState(false);
   const [hideOnScroll, setHideOnScroll] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
-  // =====> Start ADD-To-Cart
-  const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.CartReducer);
+  const loadRazorpayScript = (src) => {
+    return new Promise((resolve) => {
+      // Check if the script is already loaded
+      if (document.querySelector(`script[src="${src}"]`)) {
+        resolve();
+        return;
+      }
+  
+      // Create a new script element
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        console.error('Razorpay SDK failed to load.');
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+  
+  // Function to initiate payment
+  const initiatePayment = async () => {
+    const scriptLoaded = await loadRazorpayScript('https://checkout.razorpay.com/v1/checkout.js');
+    try {
+      // Call your API endpoint to create a Razorpay order
+      const orderResponse = await fetch('../api/razorpay', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          courseAmount: checkMatchCourses.price * 100, // assuming this is the price for the course
+          currency: 'INR',
+          fullName,
+          email,
+          phone,
+          courseID: checkMatchCourses.id,
+        })
+      });
 
-  const [amount, setAmount] = useState(1);
+      const orderData = await orderResponse.json();
+      
+      // Check if Razorpay's checkout library is available
+      if (!window.Razorpay) {
+        throw new Error('Unable to load Razorpay SDK.');
+      }
+      
+      // If Razorpay library is loaded and order was created successfully
+      const options = {
+        key: "rzp_test_VghPtJYubxrOEC", // Use Razorpay key_id here and store it in .env.local
+        amount: orderData.amount, // amount in the smallest currency unit
+        currency: orderData.currency,
+        name: 'Your Company Name',
+        description: 'Course Payment',
+        image: 'path_to_logo', // If you have a logo
+        order_id: orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of the previous API call
+        handler: function (response) {
+          // Payment was successful. You can store these details in your server
+          console.log(response.razorpay_payment_id);
+          console.log(response.razorpay_order_id);
+          console.log(response.razorpay_signature);
+          // Implement what should happen after payment is successful
+        },
+        prefill: {
+          name: fullName,
+          email: email,
+          contact: phone
+        },
+        theme: {
+          color: '#F37254'
+        }
+      };
 
-  const addToCartFun = (id, amount, product) => {
-    dispatch(addToCartAction(id, amount, product));
-    setCart(!cartToggle);
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.error('Payment failed', error);
+      alert('Payment initiation failed. Please try again.');
+    }
   };
 
-  useEffect(() => {
-    dispatch({ type: "COUNT_CART_TOTALS" });
-    localStorage.setItem("hiStudy", JSON.stringify(cart));
-  }, [cart]);
-
-
-  // const copyLinkToClipboard = () => {
-  //   navigator.clipboard.writeText(window.location.href);
-  //   alert('Link copied to clipboard!');
-  // };
-
-  // =====> For video PopUp
-  // useEffect(() => {
-  //   import("venobox/dist/venobox.min.js").then((venobox) => {
-  //     new venobox.default({
-  //       selector: ".popup-video",
-  //     });
-  //   });
-
-  //   const handleScroll = () => {
-  //     const currentScrollPos = window.pageYOffset;
-  //     const isHide = currentScrollPos > 200;
-
-  //     setHideOnScroll(isHide);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  // ... rest of your existing code
 
   return (
     <>
@@ -78,14 +122,7 @@ const Video = ({ checkMatchCourses }) => {
               alt="Video Images"
             />
           )}
-          {/* <div className="position-to-top">
-            <span className="rbt-btn rounded-player-2 with-animation">
-              <span className="play-icon"></span>
-            </span>
-          </div> */}
-          {/* <span className="play-view-text d-block color-white">
-            <i className="feather-eye"></i> Preview this course
-          </span> */}
+		  
         </div>
       </Link>
       <div className="content-item-content">
@@ -94,44 +131,24 @@ const Video = ({ checkMatchCourses }) => {
             <span className="current-price">${checkMatchCourses.price}</span>
             <span className="off-price">${checkMatchCourses.offPrice}</span>
           </div>
-          {/* <div className="discount-time">
-            <span className="rbt-badge color-danger bg-color-danger-opacity">
-              <i className="feather-clock"></i> {checkMatchCourses.days} days
-              left!
-            </span>
-          </div> */}
+
         </div>
 
-        <div className="add-to-card-button mt--15">
-          {/* <Link
-            className="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
-            href="#"
-            onClick={() =>
-              addToCartFun(checkMatchCourses.id, amount, checkMatchCourses)
-            }
-          >
-            <span className="btn-text">Add to Cart</span>
-            <span className="btn-icon">
-              <i className="feather-arrow-right"></i>
-            </span>
-          </Link> */}
-        </div>
-
-        <div className="buy-now-btn mt--15">
-          <Link
-            className="rbt-btn btn-border icon-hover w-100 d-block text-center"
-            href="#"
+        <div className="buy-now-btn mt--15" >
+		  <Link
+                    className="rbt-btn btn-border icon-hover w-100 d-block text-center"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target={`#buyNowModal${checkMatchCourses.id}`}
           >
             <span className="btn-text">Buy Now</span>
             <span className="btn-icon">
               <i className="feather-arrow-right"></i>
             </span>
           </Link>
-        </div>
-        {/* <span className="subtitle">
-          <i className="feather-rotate-ccw"></i> 30-Day Money-Back Guarantee
-        </span> */}
-        <div
+		  </div>
+
+      <div
           className={`rbt-widget-details has-show-more ${toggle ? "active" : ""
             }`}
         >
@@ -146,12 +163,7 @@ const Video = ({ checkMatchCourses }) => {
                 </li>
               ))}
           </ul>
-          {/* <div
-            className={`rbt-show-more-btn ${toggle ? "active" : ""}`}
-            onClick={() => setToggle(!toggle)}
-          >
-            Show More
-          </div> */}
+
         </div>
 
         <div className="social-share-wrapper mt--30 text-center">
@@ -179,11 +191,6 @@ const Video = ({ checkMatchCourses }) => {
                     <i className="feather-mail"></i>
                   </Link>
                 </li>
-                {/* <li>
-                <Link onClick={copyLinkToClipboard}>
-                  <i className="feather-code"></i>
-                </Link>
-              </li> */}
               </ul>
             </div>
           </div>
@@ -206,9 +213,67 @@ const Video = ({ checkMatchCourses }) => {
             </p>
           </div>
         </div>
+
       </div>
+		   {CourseData.courseDetails.map((data, index) => (
+      <div className="rbt-team-modal modal fade rbt-modal-default"
+            id={`buyNowModal${data.id}`}
+            tabIndex="-1"
+            aria-labelledby={`buyNowModal${data.id}`}
+            aria-hidden="true"
+            key={index}
+			data-bs-backdrop="false"
+			data-bs-keyboard="false"
+			>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="buyNowModalLabel">{checkMatchCourses.title}</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              {/* Course title and price */}
+              <h3>{checkMatchCourses.courseTitle}</h3>
+              <p className="price">Course Price: INR {checkMatchCourses.price}</p>
+              
+              {/* Payment form */}
+              <div className="form-group">
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="form-control mb-3"
+                  placeholder="Full Name"
+                  required
+                />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-control mb-3"
+                  placeholder="Email ID"
+                  required
+                />
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="form-control mb-3"
+                  placeholder="Phone Number"
+                  required
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary" onClick={initiatePayment}>Pay Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       ))}
     </>
   );
 };
 
 export default Video;
+
